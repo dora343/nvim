@@ -55,4 +55,5 @@ function FixTransparentBackground(color)
 	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 end
 
-FixTransparentBackground()
+-- FixTransparentBackground()
+vim.cmd.colorscheme("catppuccin")
