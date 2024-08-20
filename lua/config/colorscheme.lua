@@ -56,4 +56,7 @@ function FixTransparentBackground(color)
 end
 
 -- FixTransparentBackground()
-vim.cmd.colorscheme("catppuccin")
+
+-- vim.cmd.colorscheme("catppuccin")
+vim.cmd.colorscheme("kanagawa")
+
