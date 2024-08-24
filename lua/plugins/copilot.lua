@@ -12,7 +12,7 @@ return {
 					jump_next = "]]",
 					accept = "<CR>",
 					refresh = "gr",
-					open = "<leader>cp",
+					open = "<M-o>",
 				},
 				layout = {
 					position = "left", -- | top | left | right

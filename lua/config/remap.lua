@@ -7,6 +7,7 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "<leader>q", ":q<CR>", { desc = "Quit" })
 vim.keymap.set("n", "<leader>Q", ":qa<CR>", { desc = "Quit all" })
 vim.keymap.set("n", "<leader>ww", "<cmd>w<CR>", { desc = "Save" })
+print("remap")
 
 -- Search and replace
 vim.keymap.set("n", "<leader>sr", ":%s//g<Left><Left>", { desc = "Search & Replace" })

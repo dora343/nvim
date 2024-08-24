@@ -68,7 +68,8 @@ return {
 		lualine.setup({
 			options = {
 				theme = kanagawa,
-				component_separators = { left = "", right = "" },
+				globalstatus = true,
+				component_separators = { left = "│", right = "│" },
 				section_separators = { left = "", right = "" },
 			},
 			sections = {
@@ -117,6 +118,7 @@ return {
 				lualine_b = {
 					{
 						"buffers",
+						icons_enabled = false,
 						buffers_color = {
 							active = { bg = colors.yellow, fg = colors.black, gui = "bold" },
 							inactive = { bg = colors.grey, fg = colors.cream, gui = "italic" },
