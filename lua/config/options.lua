@@ -21,12 +21,13 @@ if os.getenv("os") == "Windows_NT" then
 else
 	vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 end
--- vim.opt.hlsearch = false
+vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 8
+vim.opt.sidescrolloff = 8
 vim.opt.signcolumn = "yes"
 -- vim.opt.isfname:append("@-@")
 -- some comment

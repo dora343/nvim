@@ -12,6 +12,7 @@ return {
 			},
 		},
 		"AndreM222/copilot-lualine",
+		"yavorski/lualine-macro-recording.nvim",
 	},
 	config = function()
 		vim.cmd.colorscheme("kanagawa")
@@ -90,6 +91,7 @@ return {
 					},
 				},
 				lualine_x = {
+					{ "macro_recording", "%S" },
 					"copilot",
 				},
 				lualine_y = {

@@ -31,5 +31,11 @@ return {
 			harpoon:list():select(4)
 			print("Harpoon #4")
 		end, { desc = "Harpoon select 4" })
+
+		vim.keymap.set("n", "<leader><leader>", function()
+			vim.notify("notify level test", "info")
+			vim.notify("notify level test", "warn")
+			vim.notify("notify level test", "error")
+		end, { desc = "notification testing" })
 	end,
 }
