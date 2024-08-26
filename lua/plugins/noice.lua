@@ -1,4 +1,3 @@
--- lazy.nvim
 return {
 	"folke/noice.nvim",
 	event = "VeryLazy",
@@ -30,6 +29,7 @@ return {
 			-- "rcarriga/nvim-notify",
 			"dora343/nvim-notify",
 			opts = {
+				fps = 60,
 				level = 2,
 				timeout = 7000,
 				top_down = false,
@@ -98,4 +98,16 @@ return {
 			-- end,
 		},
 	},
+	config = function()
+		require("noice").setup({
+			lsp = {
+				signature = {
+					enabled = true,
+				},
+				hover = {
+					enabled = false,
+				},
+			},
+		})
+	end,
 }
