@@ -15,60 +15,67 @@ return {
 		"yavorski/lualine-macro-recording.nvim",
 	},
 	config = function()
-		vim.cmd.colorscheme("kanagawa")
-		local theme = require("kanagawa.colors").setup().theme
+		local colors = {
+			-- StatusLine background color.
+			color0 = "#303030",
 
-		local kanagawa = {}
+			-- Mode colors.
+			color1 = "#80a0ff",
+			color2 = "#36c692",
+			color3 = "#ae81ff",
+			color4 = "#e3c78a",
+			color5 = "#ff5189",
 
-		kanagawa.normal = {
-			a = { bg = theme.syn.fun, fg = theme.ui.bg_m3 },
-			b = { bg = theme.diff.change, fg = theme.syn.fun },
-			c = { bg = theme.ui.bg_p1, fg = theme.ui.fg },
+			-- Mode text color.
+			color6 = "#1c1c1c",
+
+			-- StatusLineNC foreground.
+			color7 = "#9e9e9e",
+
+			-- Normal text color.
+			color8 = "#c6c6c6",
 		}
 
-		kanagawa.insert = {
-			a = { bg = theme.diag.ok, fg = theme.ui.bg },
-			b = { bg = theme.ui.bg, fg = theme.diag.ok },
+		-- LuaFormatter on
+		local moonfly = {
+			normal = {
+				a = { fg = colors.color6, bg = colors.color1 },
+				b = { fg = colors.color1, bg = colors.color0 },
+				c = { fg = colors.color8, bg = colors.color0 },
+			},
+			insert = {
+				a = { fg = colors.color6, bg = colors.color2 },
+				b = { fg = colors.color2, bg = colors.color0 },
+			},
+			visual = {
+				a = { fg = colors.color6, bg = colors.color3 },
+				b = { fg = colors.color3, bg = colors.color0 },
+			},
+			command = {
+				a = { fg = colors.color6, bg = colors.color4 },
+				b = { fg = colors.color4, bg = colors.color0 },
+			},
+			replace = {
+				a = { fg = colors.color6, bg = colors.color5 },
+				b = { fg = colors.color5, bg = colors.color0 },
+			},
+			inactive = {
+				a = { fg = colors.color7, bg = colors.color0 },
+				b = { fg = colors.color7, bg = colors.color0 },
+				c = { fg = colors.color7, bg = colors.color0 },
+			},
 		}
-
-		kanagawa.command = {
-			a = { bg = theme.syn.operator, fg = theme.ui.bg },
-			b = { bg = theme.ui.bg, fg = theme.syn.operator },
-		}
-
-		kanagawa.visual = {
-			a = { bg = theme.syn.keyword, fg = theme.ui.bg },
-			b = { bg = theme.ui.bg, fg = theme.syn.keyword },
-		}
-
-		kanagawa.replace = {
-			a = { bg = theme.syn.constant, fg = theme.ui.bg },
-			b = { bg = theme.ui.bg, fg = theme.syn.constant },
-		}
-
-		kanagawa.inactive = {
-			a = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
-			b = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim, gui = "bold" },
-			c = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
-		}
-
 		if vim.g.kanagawa_lualine_bold then
-			for _, mode in pairs(kanagawa) do
+			for _, mode in pairs(moonfly) do
 				mode.a.gui = "bold"
 			end
 		end
 
-		local colors = {
-			black = theme.ui.bg,
-			cream = theme.ui.fg,
-			grey = theme.ui.bg_m3,
-			yellow = theme.ui.fg_dim,
-		}
 		-- configure lualine with modified theme
 		local lualine = require("lualine")
 		lualine.setup({
 			options = {
-				theme = kanagawa,
+				theme = moonfly,
 				globalstatus = true,
 				component_separators = { left = "│", right = "│" },
 				section_separators = { left = "", right = "" },
@@ -114,30 +121,30 @@ return {
 				lualine_z = {},
 			},
 			tabline = {
-				lualine_a = {
-					"harpoon2",
-				},
-				lualine_b = {
-					{
-						"buffers",
-						icons_enabled = false,
-						buffers_color = {
-							active = { bg = colors.yellow, fg = colors.black, gui = "bold" },
-							inactive = { bg = colors.grey, fg = colors.cream, gui = "italic" },
-						},
-						symbols = {
-							modified = " ●",
-							alternate_file = "",
-							directory = "",
-						},
-						mode = 2,
-						max_length = vim.o.columns * 4 / 5,
-					},
-				},
-				lualine_c = {},
-				lualine_x = {},
-				lualine_y = {},
-				lualine_z = {},
+				-- lualine_a = {
+				-- 	"harpoon2",
+				-- },
+				-- lualine_b = {
+				-- 	{
+				-- 		"buffers",
+				-- 		icons_enabled = false,
+				-- 		buffers_color = {
+				-- 			active = { bg = colors.yellow, fg = colors.black, gui = "bold" },
+				-- 			inactive = { bg = colors.grey, fg = colors.cream, gui = "italic" },
+				-- 		},
+				-- 		symbols = {
+				-- 			modified = " ●",
+				-- 			alternate_file = "",
+				-- 			directory = "",
+				-- 		},
+				-- 		mode = 2,
+				-- 		max_length = vim.o.columns * 4 / 5,
+				-- 	},
+				-- },
+				-- lualine_c = {},
+				-- lualine_x = {},
+				-- lualine_y = {},
+				-- lualine_z = {},
 			},
 			winbar = {},
 			inactive_winbar = {},
